@@ -1,6 +1,6 @@
 var createNewCourse = function(e){
 
-  $("#createNewCourseButton").hide(1,()=>{$("#createLoadingIcon").show(1);});
+  $("#createNewCourseButton").hide(1,()=>{$("#addLoadingIcon").show(1);});
   var sendData = {
     name:$("#courseNameField").val(),
     advancements:[]
