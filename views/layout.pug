@@ -17,15 +17,16 @@ html
         script(type="text/javascript").
           $(document).ready(()=>{
             $('#loginModal').modal('show');
-            $('#loginModal .btn-success').click((e)=>{
+            $('#loginButton').click((e)=>{
+              $("#loginButton").hide(1,()=>{$("#loginLoadingIcon").show(1);});
               $.ajax({
               url:"users",
               method:"POST",
               data:{username:$("#UsernameInput").val(),password:$("#PasswordInput").val()},
               success: (data)=>{$('#loginModal').modal('hide');document.location.reload();},
               error: (data)=>{
+                $("#loginLoadingIcon").hide(1,()=>{$("#loginButton").show(1);});
                 if(data.status==400){
-                  
                   $("#loginModal .alert-danger").text(data.responseJSON.message);
                   $("#loginModal .alert-danger").fadeIn();
                 }

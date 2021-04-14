@@ -58,6 +58,10 @@ button.btn.btn-primary(type='button' data-toggle='modal' data-target='#addModal'
               .alert.alert-danger.small(style="display:none" role='alert')
                 | This is a warning alert&mdash;check it out!
 
+
+
       .modal-footer
         button.btn.btn-secondary(type='button' data-dismiss='modal') Fermer
-        button.btn.btn-primary.btn-success(type='button' onclick="createNewCourse(this)") Ajouter
+        button.btn.btn-primary.btn-success(type='button' id="createNewCourseButton" onclick="createNewCourse(this)") Ajouter
+        .spinner-border.text-success(id="addLoadingIcon" role='status' style="display:none")
+          span.sr-only

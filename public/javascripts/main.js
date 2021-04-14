@@ -1,4 +1,6 @@
 var createNewCourse = function(e){
+
+  $("#createNewCourseButton").hide(1,()=>{$("#createLoadingIcon").show(1);});
   var sendData = {
     name:$("#courseNameField").val(),
     advancements:[]
@@ -27,12 +29,15 @@ var createNewCourse = function(e){
     contentType: "application/json",
     data:JSON.stringify(sendData),
     success: (data)=>{
-      $('#addModal').modal('hide');
-      $("#courseContainer").append(data);
+      $("#addLoadingIcon").hide(1,()=>{
+        $("#createNewCourseButton").show(1);
+        $('#addModal').modal('hide');
+        $("#courseContainer").append(data);
+      });
     },
     error: (data)=>{
       if(data.status==400){
-
+        $("#addLoadingIcon").hide(1,()=>{$("#createNewCourseButton").show(1);});
         $("#addModal .alert-danger").text(data.responseJSON.message);
         $("#addModal .alert-danger").fadeIn();
       }

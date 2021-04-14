@@ -5,6 +5,8 @@
         h5.modal-title Identifie-toi !
         small.text-muted.text-center C'est la première fois ?
         small.text-muted.text-center C'est pas grave un compte sera créé automatiquement.
+        small.text-muted.text-center 
+          a(href="./about") HangOn c'est quoi ?
 
       .modal-body.justify-content-center
         div(class="input-group input-group-sm mt-4")
@@ -19,4 +21,6 @@
         .alert.alert-danger.mt-5.small(style="display:none" role='alert')
           | This is a warning alert&mdash;check it out!
       .modal-footer.justify-content-center
-        button.btn.btn-success(type='button') Entrer
+        button.btn.btn-success(id="loginButton" type='button') Entrer
+        .spinner-grow.text-success(id="loginLoadingIcon" role='status' style="display:none")
+          span.sr-only
