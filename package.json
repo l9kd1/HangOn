@@ -1,0 +1,25 @@
+{
+  "name": "hang-on",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bootstrap": "^5.0.0-beta3",
+    "bootstrap-icons": "^1.4.1",
+    "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "http-errors": "~1.6.3",
+    "mdb-cli": "^3.2.3",
+    "mongodb": "^3.6.5",
+    "mongoose": "^5.12.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "sass-loader": "^11.0.1"
+  }
+}

@@ -1,0 +1,58 @@
+.col
+  div(id="accordion"+c._id)
+    .card.mt-5
+      .card-header(id="headingOne"+c._id)
+        button.btn(data-toggle='collapse' data-target='#collapseOne'+c._id aria-expanded='true' aria-controls='collapseOne'+c._id)
+          = c.course
+
+      div(id="collapseOne"+c._id class="collapse show collapse"+c._id aria-labelledby="headingOne"+c._id data-parent="#accordion"+c._id)
+        .card-body
+          each adv in c.advancements
+            -var cls = "bg-success"
+            case adv.type
+              when "CM"
+                -cls = "bg-primary"
+              when "TP"
+                -cls = "bg-danger"
+              when "Lecture"
+                -cls = "bg-info"
+              when "Devoirs"
+                -cls = "bg-secondary"
+            .progress.mt-2
+              div(class="progress-bar "+cls id="advbar-"+adv._id role='progressbar' style="width: "+100*adv.value/adv.maxvalue+"%" chunk-val=100/adv.maxvalue aria-valuenow=adv.value aria-valuemin='0' aria-valuemax=adv.maxvalue)
+
+    .card
+      .card-header(id="headingTwo"+c._id)
+        button.btn.collapsed(data-toggle='collapse' data-target='.collapse'+c._id aria-expanded='false' aria-controls='collapseTwo'+c._id)
+          | Éditer ma progression 
+          i(class="bi bi-caret-down-fill")
+        .btn.btn-outline-danger.delete-course(style="float: right;margin: 0px 10px;" mongo-id=c._id onclick="deleteCourse(this)") 
+          i.bi.bi-trash(aria-hidden="true")
+      div(id="collapseTwo"+c._id class="collapse collapse"+c._id aria-labelledby="headingTwo"+c._id data-parent="#accordion"+c._id)
+        .card-body
+          each adv in c.advancements
+            -cls="btn-success"
+            case adv.type
+              when "CM"
+                -cls = "btn-primary"
+              when "TP"
+                -cls = "btn-danger"
+              when "Lecture"
+                -cls = "btn-info"
+              when "Devoirs"
+                -cls = "btn-secondary"
+            .form-group.flex-column
+              small.form-text.text-muted 
+                =adv.type
+              br
+              .btn-group.btn-group-toggle(data-toggle='buttons')
+                for chunk in adv.chunks
+                
+                  if chunk.validated
+                    label.btn.btn-sm.active(class=cls chunk-id=chunk._id adv-id=adv._id newvalue="false" onclick="modifyChunk(this)")
+                      input(type='checkbox' class="d-none" name='options' autocomplete='off')
+                      = chunk.number+1
+                  else
+                    label.btn.btn-sm(class=cls chunk-id=chunk._id adv-id=adv._id newvalue="true" onclick="modifyChunk(this)")
+                      input(type='checkbox' class="d-none" name='options' autocomplete='off')
+                      = chunk.number+1

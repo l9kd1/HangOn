@@ -1,0 +1,19 @@
+extends layout
+
+block navbar
+  include ./components/navbar.pug
+
+block content
+  div(class="container mt-5")
+    div(class="row justify-content-center")
+      div(class="col-6 text-center")
+        h4 Au revoir !
+        iframe(style="width: 100%;height: 60vh;" src='https://www.youtube.com/embed/wVyggTKDcOE?rel=0&modestbranding=1&autohide=1&mute=1&showinfo=0&controls=1&autoplay=1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+        
+block append scripts
+  if !user
+    script(type="text/javascript").
+      $(document).ready(()=>{window.location.replace("./")}); 
+    
+  script(type="text/javascript").
+    $(document).ready(()=>{document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"});

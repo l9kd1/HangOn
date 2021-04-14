@@ -1,0 +1,22 @@
+#loginModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='loginModalTitle' data-backdrop="static" aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header.flex-column
+        h5.modal-title Identifie-toi !
+        small.text-muted.text-center C'est la première fois ?
+        small.text-muted.text-center C'est pas grave un compte sera créé automatiquement.
+
+      .modal-body.justify-content-center
+        div(class="input-group input-group-sm mt-4")
+          div(class="input-group-prepend" id="inputGroup-username")
+            span(class="input-group-text") Username
+          input(id="UsernameInput" class="form-control" aria-describedby="inputGroup-username")
+
+        div(class="input-group input-group-sm mt-4")
+          div(class="input-group-prepend" id="inputGroup-pass")
+            span(class="input-group-text") Password
+          input(id="PasswordInput" class="form-control" type="password" aria-describedby="inputGroup-pass")
+        .alert.alert-danger.mt-5.small(style="display:none" role='alert')
+          | This is a warning alert&mdash;check it out!
+      .modal-footer.justify-content-center
+        button.btn.btn-success(type='button') Entrer

@@ -1,0 +1,63 @@
+button.btn.btn-primary(type='button' data-toggle='modal' data-target='#addModal')
+  i.bi.bi-plus(aria-hidden="true")
+#addModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='addModalTitle' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header.flex-column
+        h5.modal-title Ajoute un cours !
+        small.text-muted Et suis ton avancement dans sa révision.
+      .modal-body
+        .container-fluid
+          .row.justify-content-center
+            .col-10
+              .form-group.mt-4
+                .input-group.justify-content-center
+                  .input-group-prepend
+                    label.input-group-text.btn-secondary Intitulé du cours
+                  input#courseNameField.form-control(aria-describedby="inputGroup-pass" placeholder="ex: [LEPL1101] Éléments finis")
+
+              .form-group.mt-4
+                .input-group
+                  .input-group-prepend
+                    label.input-group-text.btn-secondary Semaines à réviser
+                  select#weeksField.custom-select
+                    each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                      option(value=val)=val
+
+
+
+
+              .form-group.mt-4
+                
+                #typeField.btn-group.btn-group-toggle(data-toggle='buttons' style="float:left")
+                  
+                  label.btn.btn-secondary.active
+                    input#option1(type='checkbox' class="d-none" name='options' value="CM" autocomplete='off')
+                    |  CM
+                  label.btn.btn-secondary
+                    input#option2(type='checkbox' class="d-none" name='options' value="TP" autocomplete='off')
+                    |  TP
+                  label.btn.btn-secondary
+                    input#option3(type='checkbox' class="d-none" name='options' value="Lecture" autocomplete='off')
+                    |  Lecture
+                  label.btn.btn-secondary
+                    input#option3(type='checkbox' class="d-none" name='options' value="Devoirs" autocomplete='off')
+                    |  Devoirs
+                br
+                small.form-text.text-muted(style="float:left") Choisis ce que tu comptes passer en revue.
+
+                
+              .form-group.mt-5.mb-5
+                .input-group
+                  .input-group-prepend
+                    label.input-group-text.btn-secondary Anciens examens à faire
+                  select#examsField.custom-select
+                    each val in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                      option(value=val)=val
+
+              .alert.alert-danger.small(style="display:none" role='alert')
+                | This is a warning alert&mdash;check it out!
+
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Fermer
+        button.btn.btn-primary.btn-success(type='button' onclick="createNewCourse(this)") Ajouter

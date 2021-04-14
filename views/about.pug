@@ -1,0 +1,35 @@
+extends layout
+
+block navbar
+  include ./components/navbar.pug
+
+block content
+  div(class="container mt-5")
+    div(class="row justify-content-center")
+      div(class="col-6 text-center")
+        .card
+          .card-header
+            | À propos
+          .card-body.text-left
+            .container
+              .row
+                h5.card-title Qu'est-ce que HangOn ?
+                small.card-text 
+                  | C'est simplement un outil pour les étudiants qui ne savent plus où donner de la tête.
+                  br
+                  | Marre de noter ta progression dans tes révisions sur un post-it, HangOn est fait pour toi !
+                  br
+                  | Dispose d'un panel pour visualiser tes progrès.
+              .row.justify-content-center.mt-3
+                a.col-4.btn.btn-primary(href='./') Commencer à étudier !
+
+              .row.mt-3
+                h5.card-title Une idée d'amélioration ?
+                small.card-text
+                  | Tu connais un peu Nodejs, Expressjs et MongoDB ? Parfait HangOn est open-source et disponible sur github !
+              .row.mt-3.justify-content-center
+                a.col-4.btn.btn-success(href='https://github.com/l9kd1/HangOn.git' target="_blank") Contribuer !
+
+              
+          .card-footer.text-muted
+            | Go pour les exams !
