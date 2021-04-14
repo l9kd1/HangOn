@@ -22,7 +22,7 @@ html
               url:"users",
               method:"POST",
               data:{username:$("#UsernameInput").val(),password:$("#PasswordInput").val()},
-              success: (data)=>{$('#loginModal').modal('hide');},
+              success: (data)=>{$('#loginModal').modal('hide');document.location.reload();},
               error: (data)=>{
                 if(data.status==400){
                   
