@@ -60,6 +60,9 @@ typings/
 # next.js build output
 .next
 
+# Node lockfile
+package-lock.json
+
 .sass-cache
 
 public/css/style.css
