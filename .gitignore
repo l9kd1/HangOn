@@ -63,3 +63,6 @@ typings/
 .sass-cache
 
 public/css/style.css
+
+###### VS Code ######
+workspace.code-workspace
