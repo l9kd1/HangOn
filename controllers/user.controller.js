@@ -71,7 +71,6 @@ class UserController {
                 // Creating session
                 SessionService.authUserSession(res, {
                     "username"      : req.body.username,
-                    "password"      : hashedPassword,
                     "_id"           : val._id
                 });
 
@@ -96,7 +95,6 @@ class UserController {
                 // Creating session
                 SessionService.authUserSession(res, {
                     "username"      : user.username,
-                    "password"      : user.password,
                     "_id"           : user._id
                 });
 
